@@ -1,6 +1,6 @@
 package com.turkcellcamp.ecommerce.business.abstracts;
 
-import com.turkcellcamp.ecommerce.entities.concretes.Product;
+import com.turkcellcamp.ecommerce.entities.Product;
 
 import java.util.List;
 
