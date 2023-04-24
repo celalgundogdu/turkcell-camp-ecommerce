@@ -2,10 +2,7 @@ package com.turkcellcamp.ecommerce.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,18 +12,19 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Table(name = "categories")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "categoryList", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.LAZY)
     @JsonBackReference
-    private Set<Product> productList = new HashSet<>();
+    private Set<Product> products = new HashSet<>();
 }

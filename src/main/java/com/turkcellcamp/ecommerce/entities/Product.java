@@ -22,16 +22,16 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "quantity")
-    private int quantity;
+    private Integer quantity;
 
     @Column(name = "unit_price")
-    private double unitPrice;
+    private Double unitPrice;
 
     @Column(name = "description")
     private String description;
@@ -44,5 +44,5 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     @JsonManagedReference
-    private Set<Category> categoryList = new HashSet<>();
+    private Set<Category> categories = new HashSet<>();
 }
